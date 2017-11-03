@@ -6,8 +6,10 @@ let fetchStyle = function(url) {
     link.onload = function() { resolve(); };
     link.href = url;
 
-    let headScript = document.querySelector('script');
-    headScript.parentNode.insertBefore(link, headScript);
+    if (!document.querySelector('link[href="' + url + '"]')) {
+      let headScript = document.querySelector('head');
+      headScript.append(link);
+    }
   });
 };
 
@@ -19,8 +21,7 @@ class IconPicker {
         css: 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css', // CSS url containing icons rules
         prefix: 'icon-', // CSS rules prefix to identify icons
         displayPrefix: ''
-      },
-      {
+      },{
         name: 'fontAwesome', // Name displayed on tab
         css: 'https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css', // CSS url containing icons rules
         prefix: 'fa-', // CSS rules prefix to identify icons
@@ -80,8 +81,6 @@ class IconPicker {
 
   parseCSS( css, prefix = 'fa-', displayPrefix = '' ) {
     const iconPattern = new RegExp('\\.' + prefix + '([^\\.!:]*)::?before\\s*{\\s*content:\\s*["|\']\\\\[^\'|"]*["|\'];?\\s*}', 'g');
-    // const iconPattern = new RegExp('\\.' + prefix + '([^\\.!:]*)::?before{content:["|\']\\\\[^\'|"]*["|\']}', 'g');
-    console.log()
     const index = 1;
     let icons = [], icon, match;
 
