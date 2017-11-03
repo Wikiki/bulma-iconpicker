@@ -1,0 +1,25 @@
+{
+  "name": "bulma-iconpicker",
+  "version": "0.1.0",
+  "description": "A wonderful customizable icon picker for your Bulma project",
+  "main": "iconpicker.sass",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wikiki/bulma-iconpicker.git"
+  },
+  "keywords": [
+    "Bulma",
+    "bulma",
+    "extensions",
+    "bulma.io"
+  ],
+  "author": "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io/bulma-extensions/overview)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wikiki/bulma-iconpicker/issues"
+  },
+  "homepage": "https://github.com/Wikiki/bulma-iconpicker#readme"
+}
