@@ -238,11 +238,10 @@ class IconPicker {
 }
 
 let iconPickers = document.querySelectorAll('[data-action="iconPicker"]');
-let iconPickerOptions = {};
 if (iconPickers) {
   iconPickers.forEach(element => {
     if (!element.dataset.iconPicker) {
-      element.dataset.iconPicker = new IconPicker(element, iconPickerOptions);
+      element.dataset.iconPicker = new IconPicker(element, iconPickerOptions || {});
     }
   })
 }
