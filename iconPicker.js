@@ -245,7 +245,7 @@ let iconPickers = document.querySelectorAll('[data-action="iconPicker"]');
 if (iconPickers) {
   iconPickers.forEach(element => {
     if (!element.dataset.iconPicker) {
-      element.dataset.iconPicker = new IconPicker(element, iconPickerOptions);
+      element.dataset.iconPicker = new IconPicker(element, iconPickerOptions || {});
     }
   })
 }
