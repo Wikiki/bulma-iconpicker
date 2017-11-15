@@ -237,8 +237,11 @@ class IconPicker {
   }
 }
 
+if (typeof iconPickerOptions === undefined || iconPickerOptions === null) {
+  let iconPickerOptions =  {};
+}
+console.log(iconPickerOptions);
 let iconPickers = document.querySelectorAll('[data-action="iconPicker"]');
-let iconPickerOptions = {};
 if (iconPickers) {
   iconPickers.forEach(element => {
     if (!element.dataset.iconPicker) {
