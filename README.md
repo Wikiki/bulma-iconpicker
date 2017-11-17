@@ -8,4 +8,4 @@ A wonderful customizable icon picker for your Bulma project
 
 Documentation & Demo
 ---
-You can find the Documentation and a demo [here](https://wikiki.github.io/bulma-extensions/iconpicker)
+You can find the Documentation and a demo [here](https://wikiki.github.io/form/iconpicker/)
