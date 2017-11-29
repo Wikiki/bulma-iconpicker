@@ -1,8 +1,8 @@
 {
   "name": "bulma-iconpicker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A wonderful customizable icon picker for your Bulma project",
-  "main": "iconpicker.sass",
+  "main": "iconPicker.sass",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,5 +21,17 @@
   "bugs": {
     "url": "https://github.com/Wikiki/bulma-iconpicker/issues"
   },
-  "homepage": "https://github.com/Wikiki/bulma-iconpicker#readme"
+  "homepage": "https://github.com/Wikiki/bulma-iconpicker#readme",
+  "devDependencies": {
+    "bulma": "^0.6.1"
+  },
+  "files": [
+    "iconPicker.sass",
+    "iconPicker.css",
+    "iconPicker.min.css",
+    "iconPicker.js",
+    "iconPicker.min.js",
+    "LICENSE",
+    "README.md"
+  ]
 }
