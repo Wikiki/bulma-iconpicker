@@ -1,0 +1,23 @@
+{
+  "name": "bulma-iconpicker",
+  "description": "A wonderful customizable icon picker for your Bulma project",
+  "main": "iconPicker.sass",
+  "authors": [
+    "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io/bulma-extensions/overview)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Bulma",
+    "bulma",
+    "extensions",
+    "bulma.io"
+  ],
+  "homepage": "https://github.com/Wikiki/bulma-iconpicker",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
