@@ -1,6 +1,6 @@
 # bulma-iconpicker
 A wonderful customizable icon picker for your Bulma project
-(find all my bulma's extensions [here](https://wikiki.github.io/bulma-extensions/overview))
+(find all my bulma's extensions [here](https://wikiki.github.io/))
 
 [![npm](https://img.shields.io/npm/v/bulma-iconpicker.svg)](https://www.npmjs.com/package/bulma-iconpicker)
 [![npm](https://img.shields.io/npm/dm/bulma-iconpicker.svg)](https://www.npmjs.com/package/bulma-iconpicker)
