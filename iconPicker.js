@@ -1,3 +1,5 @@
+const MOUSE_EVENTS = ['click', 'touchstart'];
+
 let fetchStyle = function(url) {
   return new Promise((resolve, reject) => {
     let link = document.createElement('link');
@@ -51,6 +53,8 @@ class IconPicker {
         .then(css => {
           this.icons[iconSet.name] = this.parseCSS(css, iconSet.prefix || 'fa-', iconSet.displayPrefix || '');
           this.modalSetTabs.querySelector('a').click();
+          var touchEvent = new Event('touchstart');
+          this.modalSetTabs.querySelector('a').dispatchEvent(touchEvent);
         })
         ;
     } );
@@ -70,10 +74,12 @@ class IconPicker {
     }
     this.preview.appendChild(iconPreview);
 
-    this.preview.addEventListener('click', e => {
-      e.preventDefault();
+    MOUSE_EVENTS.forEach((event) => {
+      this.preview.addEventListener(event, e => {
+        e.preventDefault();
 
-      this.modal.classList.add('is-active');
+        this.modal.classList.add('is-active');
+      });
     });
 
     this.element.parentNode.insertBefore(this.preview, this.element.nextSibling);
@@ -133,13 +139,15 @@ class IconPicker {
     }
     iconPreview.classList.add( icon['selector'] );
     iconLink.appendChild(iconPreview);
-    iconLink.addEventListener('click', e => {
-      e.preventDefault();
-      this.preview.innerHTML = '';
-      this.element.value = e.target.classList;
-      this.preview.appendChild(e.target.cloneNode(true));
-      this.modal.classList.remove('is-active');
-    })
+    MOUSE_EVENTS.forEach((event) => {
+      iconLink.addEventListener(event, e => {
+        e.preventDefault();
+        this.preview.innerHTML = '';
+        this.element.value = e.target.classList;
+        this.preview.appendChild(e.target.cloneNode(true));
+        this.modal.classList.remove('is-active');
+      });
+    });
     return iconLink;
   }
 
@@ -167,10 +175,12 @@ class IconPicker {
     });
     let modalHeaderClose = document.createElement('button');
     modalHeaderClose.className = 'delete';
-    modalHeaderClose.addEventListener('click', e => {
-      e.preventDefault();
+    MOUSE_EVENTS.forEach((event) => {
+      modalHeaderClose.addEventListener(event, e => {
+        e.preventDefault();
 
-      this.modal.classList.remove('is-active');
+        this.modal.classList.remove('is-active');
+      });
     });
 
     modalCard.appendChild(modalHeader);
@@ -188,18 +198,20 @@ class IconPicker {
         let modalSetTabLink = document.createElement('a');
         modalSetTabLink.dataset.iconset = iconSet.name;
         modalSetTabLink.innerHTML = iconSet.name;
-        modalSetTabLink.addEventListener('click', e => {
-          e.preventDefault();
+        MOUSE_EVENTS.forEach((event) => {
+          modalSetTabLink.addEventListener(event, e => {
+            e.preventDefault();
 
-          var activeModalTabs = this.modalSetTabs.querySelectorAll('.is-active');
-          [].forEach.call(activeModalTabs, function(activeModalTab) {
-            activeModalTab.classList.remove('is-active');
+            var activeModalTabs = this.modalSetTabs.querySelectorAll('.is-active');
+            [].forEach.call(activeModalTabs, function(activeModalTab) {
+              activeModalTab.classList.remove('is-active');
+            });
+
+            e.target.parentNode.classList.add('is-active');
+            this.drawIcons(this.icons[e.target.dataset.iconset]);
+            this.filter(this.modalHeaderSearch.value);
           });
-
-          e.target.parentNode.classList.add('is-active');
-          this.drawIcons(this.icons[e.target.dataset.iconset]);
-          this.filter(this.modalHeaderSearch.value);
-        })
+        });
         modalSetTab.appendChild(modalSetTabLink);
         this.modalSetTabs.appendChild(modalSetTab);
       });
