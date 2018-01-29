@@ -1,6 +1,6 @@
 {
   "name": "bulma-iconpicker",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A wonderful customizable icon picker for your Bulma project",
   "main": "iconPicker.sass",
   "scripts": {
