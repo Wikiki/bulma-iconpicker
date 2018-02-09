@@ -2,6 +2,7 @@
   "name": "bulma-iconpicker",
   "description": "A wonderful customizable icon picker for your Bulma project",
   "main": "iconPicker.sass",
+  "version": "0.1.7",
   "authors": [
     "Wikiki <wikiki@protonmail.com> (https://wikiki.github.io/bulma-extensions/overview)"
   ],
