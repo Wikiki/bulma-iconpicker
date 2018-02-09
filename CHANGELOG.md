@@ -1,3 +1,19 @@
+<a name="0.1.7"></a>
+## [0.1.7](https://github.com/Wikiki/bulma-iconpicker/compare/v0.1.2...v0.1.7) (2018-02-09)
+
+
+### Bug Fixes
+
+* **bower:** Add missing version ([8169c77](https://github.com/Wikiki/bulma-iconpicker/commit/8169c77))
+
+
+### Features
+
+* **gulp:** Add gulp dependencies ([1fe7580](https://github.com/Wikiki/bulma-iconpicker/commit/1fe7580))
+* **gulp:** Add release task ([1ed0bfa](https://github.com/Wikiki/bulma-iconpicker/commit/1ed0bfa))
+
+
+
 # Change Log
 
 ## [v0.1.2](https://github.com/wikiki/bulma-iconpicker/tree/v0.1.2) (2017-11-30)
