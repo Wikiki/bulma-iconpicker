@@ -1,3 +1,13 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/Wikiki/bulma-iconpicker/compare/0.1.10...1.0.0) (2018-02-10)
+
+
+### Features
+
+* **rollup:** Add Rollup for JS transpilation ([d027b66](https://github.com/Wikiki/bulma-iconpicker/commit/d027b66))
+
+
+
 <a name="0.1.10"></a>
 ## [0.1.10](https://github.com/Wikiki/bulma-iconpicker/compare/0.1.9...0.1.10) (2018-02-10)
 
