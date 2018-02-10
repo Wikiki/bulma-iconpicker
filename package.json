@@ -2,7 +2,7 @@
   "name": "bulma-iconpicker",
   "version": "0.1.7",
   "description": "A wonderful customizable icon picker for your Bulma project",
-  "main": "iconPicker.sass",
+  "main": "dist/bulma-iconpicker.sass",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -47,10 +47,10 @@
     "run-sequence": "^2.2.1"
   },
   "files": [
-    "dist/iconPicker.sass",
-    "dist/bulma-iconPicker.min.css",
-    "dist/iconPicker.js",
-    "dist/iconPicker.min.js",
+    "dist/bulma-iconpicker.sass",
+    "dist/bulma-iconpicker.min.css",
+    "dist/bulma-iconpicker.js",
+    "dist/bulma-iconpicker.min.js",
     "LICENSE",
     "README.md"
   ]

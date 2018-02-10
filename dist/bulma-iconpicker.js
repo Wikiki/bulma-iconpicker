@@ -15,7 +15,7 @@ let fetchStyle = function(url) {
   });
 };
 
-class IconPicker {
+export default class IconPicker {
   constructor(element, options = {}) {
     const defaultOptions = {
       iconSets: [ {
