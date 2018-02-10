@@ -1,3 +1,13 @@
+<a name="0.1.9"></a>
+## [0.1.9](https://github.com/Wikiki/bulma-iconpicker/compare/0.1.8...0.1.9) (2018-02-10)
+
+
+### Bug Fixes
+
+* **gulp:** Use UMD modules style ([fe3bd91](https://github.com/Wikiki/bulma-iconpicker/commit/fe3bd91))
+
+
+
 <a name="0.1.8"></a>
 ## [0.1.8](https://github.com/Wikiki/bulma-iconpicker/compare/0.1.7...0.1.8) (2018-02-10)
 
