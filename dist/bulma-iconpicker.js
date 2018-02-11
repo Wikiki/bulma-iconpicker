@@ -1,3 +1,6 @@
+var bulmaIconpicker = (function () {
+'use strict';
+
 const MOUSE_EVENTS = ['click', 'touchstart'];
 
 let fetchStyle = function(url) {
@@ -15,7 +18,7 @@ let fetchStyle = function(url) {
   });
 };
 
-export default class IconPicker {
+class IconPicker {
   constructor(element, options = {}) {
     const defaultOptions = {
       iconSets: [ {
@@ -97,7 +100,7 @@ export default class IconPicker {
         name: this.ucwords(match[index]).trim(':'),
         filter: match[index].trim(':'),
         displayPrefix: displayPrefix
-      }
+      };
       icons[match[index]] = icon;
     }
 
@@ -259,3 +262,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
     }
   });
 });
+
+return IconPicker;
+
+}());
