@@ -64,10 +64,8 @@
     }
   },
   "files": [
-    "dist/bulma-iconpicker.sass",
-    "dist/bulma-iconpicker.min.css",
-    "dist/bulma-iconpicker.js",
-    "dist/bulma-iconpicker.min.js",
+    "dist/**",
+    "src/**",
     "LICENSE",
     "README.md"
   ]
