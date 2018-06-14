@@ -144,6 +144,7 @@ export default class IconPicker {
         e.preventDefault();
         this.preview.innerHTML = '';
         this.element.value = e.target.classList;
+        this.element.dispatchEvent(new Event('change'));
         this.preview.appendChild(e.target.cloneNode(true));
         this.modal.classList.remove('is-active');
       });
