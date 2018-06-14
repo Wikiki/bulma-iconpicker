@@ -1,4 +1,6 @@
-const MOUSE_EVENTS = ['click', 'touchstart'];
+import EventEmitter from './events';
+import defaultOptions from './defaultOptions';
+
 
 let fetchStyle = function(url) {
   return new Promise((resolve, reject) => {
@@ -15,28 +17,45 @@ let fetchStyle = function(url) {
   });
 };
 
-export default class IconPicker {
-  constructor(element, options = {}) {
-    const defaultOptions = {
-      iconSets: [ {
-        name: 'simpleLine', // Name displayed on tab
-        css: 'https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css', // CSS url containing icons rules
-        prefix: 'icon-', // CSS rules prefix to identify icons
-        displayPrefix: ''
-      },{
-        name: 'fontAwesome', // Name displayed on tab
-        css: 'https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css', // CSS url containing icons rules
-        prefix: 'fa-', // CSS rules prefix to identify icons
-        displayPrefix: 'fa fa-icon'
-      } ]
+export default class bulmaIconpicker extends EventEmitter {
+  constructor(selector, options = {}) {
+    super();
+
+    this.element = typeof selector === 'string'
+      ? document.querySelector(selector)
+      : selector;
+    // An invalid selector or non-DOM node has been provided.
+    if (!this.element) {
+      throw new Error('An invalid selector or non-DOM node has been provided.');
+    }
+
+    this._clickEvents = ['click'];
+    /// Set default options and merge with instance defined
+    this.options = {
+      ...defaultOptions,
+      ...options
     };
 
-
-    this.element = element;
-    this.options = Object.assign({}, defaultOptions, options);
     this.icons = [];
     this.id = 'iconPicker' + ( new Date ).getTime();
     this.init();
+  }
+
+  /**
+   * Initiate all DOM element containing carousel class
+   * @method
+   * @return {Array} Array of all Carousel instances
+   */
+  static attach(selector = '[data-action="iconPicker"]', options = {}) {
+    let instances = new Array();
+
+    const elements = document.querySelectorAll(selector);
+    [].forEach.call(elements, element => {
+      setTimeout(() => {
+        instances.push(new bulmaIconpicker(element, options));
+      }, 100);
+    });
+    return instances;
   }
 
   init() {
@@ -74,7 +93,7 @@ export default class IconPicker {
     }
     this.preview.appendChild(iconPreview);
 
-    MOUSE_EVENTS.forEach((event) => {
+    this._clickEvents.forEach(event => {
       this.preview.addEventListener(event, e => {
         e.preventDefault();
 
@@ -139,7 +158,7 @@ export default class IconPicker {
     }
     iconPreview.classList.add( icon['selector'] );
     iconLink.appendChild(iconPreview);
-    MOUSE_EVENTS.forEach((event) => {
+    this._clickEvents.forEach(event => {
       iconLink.addEventListener(event, e => {
         e.preventDefault();
         this.preview.innerHTML = '';
@@ -175,7 +194,7 @@ export default class IconPicker {
     });
     let modalHeaderClose = document.createElement('button');
     modalHeaderClose.className = 'delete';
-    MOUSE_EVENTS.forEach((event) => {
+    this._clickEvents.forEach(event => {
       modalHeaderClose.addEventListener(event, e => {
         e.preventDefault();
 
@@ -198,7 +217,7 @@ export default class IconPicker {
         let modalSetTabLink = document.createElement('a');
         modalSetTabLink.dataset.iconset = iconSet.name;
         modalSetTabLink.innerHTML = iconSet.name;
-        MOUSE_EVENTS.forEach((event) => {
+        this._clickEvents.forEach(event => {
           modalSetTabLink.addEventListener(event, e => {
             e.preventDefault();
 
@@ -249,13 +268,3 @@ export default class IconPicker {
     });
   }
 }
-
-document.addEventListener( 'DOMContentLoaded', function () {
-  let iconPickers = document.querySelectorAll('[data-action="iconPicker"]');
-  let iconPickerOptions = {};
-  [].forEach.call(iconPickers, function(iconPicker) {
-    if (!iconPicker.dataset.iconPicker) {
-      iconPicker.dataset.iconPicker = new IconPicker(iconPicker, iconPickerOptions);
-    }
-  });
-});
